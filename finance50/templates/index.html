@@ -1,0 +1,47 @@
+
+ {% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+   <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>${{ total }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+             {% for row in rows %}
+                <tr>
+                    <td>{{ row["symbol"] }}</td>
+                    <td>{{ row["comname"] }}</td>
+                    <td>{{ row["shares"] }}</td>
+                    <td>${{ row["price"] }}</td>
+                    <td>${{ row["total"] }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td >${{ cash }}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+    112.00
+    9,888.00
+    56.00
+    9,944.00
+{% endblock %}
+
