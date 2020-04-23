@@ -9,6 +9,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
 
+import random, threading, webbrowser
+
 # Configure application
 app = Flask(__name__)
 
@@ -300,7 +302,17 @@ def errorhandler(e):
         e = InternalServerError()
     return apology(e.name, e.code)
 
+def main():
+    url = "http://127.0.0.1:5000"
+
+    threading.Timer(1.25, lambda: webbrowser.open(url) ).start()
+
+    app.run(port=5000, debug=False)
 
 # Listen for errors
 for code in default_exceptions:
     app.errorhandler(code)(errorhandler)
+
+
+if __name__ == '__main__':
+        main()
