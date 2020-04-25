@@ -304,10 +304,8 @@ def errorhandler(e):
 
 def main():
     url = "http://127.0.0.1:5000"
-
-    threading.Timer(1.25, lambda: webbrowser.open(url) ).start()
-
-    app.run(port=5000, debug=False)
+    threading.Timer(1.25, lambda: webbrowser.open(url) ).start()  #opens above url in web browser
+    app.run(port=5000, debug=False) #runs flask application
 
 # Listen for errors
 for code in default_exceptions:
